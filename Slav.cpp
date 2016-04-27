@@ -1,5 +1,8 @@
 #include "Slav.h"
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <iterator>
 
 using namespace std;
 
@@ -19,6 +22,9 @@ void Slav::init()
 Slav::Slav()
 {
 	static int amountOfNames = (init(), names.size());
+	/*
+	powyzej tzw. leniwa inicjalizacja - opoznia tworzenie obiektu dopoki nie zaistnieje taka potrzeba. 
+	*/
 	_name = names[rand() % amountOfNames];
 	_id = _counter++;
 }
@@ -27,3 +33,5 @@ string Slav::description()
 {
 	return string("  ") + _name + " [" + to_string(_id) + "]";
 }
+
+
